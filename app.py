@@ -10,6 +10,9 @@ API_HOST = 'https://api.bitkub.com'
 API_KEY = os.environ['API_KEY']
 API_SECRET = os.environ['API_SECRET']
 
+
+
+
 def json_encode(data):
 	return json.dumps(data, separators=(',', ':'), sort_keys=True)
 
@@ -30,8 +33,6 @@ header = {
 	'Content-Type': 'application/json',
 	'X-BTK-APIKEY': API_KEY,
 }
-
-
 data = {
 	'sym': 'THB_BTC',
 	'amt': 10, # THB amount you want to spend
@@ -46,4 +47,3 @@ print('Payload with signature: ' + json_encode(data))
 response = requests.post(API_HOST + '/api/market/place-bid', headers=header, data=json_encode(data))
 
 print('Response: ' + response.text)
-
