@@ -1,2 +1,4 @@
 requests==2.23.0
 requests-html==0.10.0
+Flask==0.12.1
+gunicorn==19.7.1
