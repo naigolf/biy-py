@@ -2,12 +2,13 @@ import hashlib
 import hmac
 import json
 import requests
+import os
 
 
 # API info
 API_HOST = 'https://api.bitkub.com'
 API_KEY = os.environ['API_KEY']
-API_SECRET = b + os.environ['API_SECRET']
+API_SECRET = os.environ['API_SECRET']
 
 def json_encode(data):
 	return json.dumps(data, separators=(',', ':'), sort_keys=True)
