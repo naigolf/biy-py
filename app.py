@@ -39,19 +39,19 @@ header = {
 	'X-BTK-APIKEY': API_KEY,
 }
 
-@app.route('/buy')
-	data = {
-		'sym': 'THB_BTC',
-		'amt': 10, # THB amount you want to spend
-		'rat': 260000,
-		'typ': 'limit',
-		'ts': ts,
-	}
-	signature = sign(data)
-	data['sig'] = signature
 
-	print('Payload with signature: ' + json_encode(data))
-	response = requests.post(API_HOST + '/api/market/place-bid', headers=header, data=json_encode(data))
+data = {
+	'sym': 'THB_BTC',
+	'amt': 10, # THB amount you want to spend
+	'rat': 260000,
+	'typ': 'limit',
+	'ts': ts,
+}
+signature = sign(data)
+data['sig'] = signature
 
-	print('Response: ' + response.text)
-	return ('Response: ' + response.text)
+print('Payload with signature: ' + json_encode(data))
+response = requests.post(API_HOST + '/api/market/place-bid', headers=header, data=json_encode(data))
+
+print('Response: ' + response.text)
+return ('Response: ' + response.text)
