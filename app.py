@@ -3,15 +3,6 @@ import hmac
 import json
 import requests
 
-from flask import Flask
-
-
-app = Flask(__name__)
-
-
-@app.route('/')
-def home():
-    return "Hello World"
 
 # API info
 API_HOST = 'https://api.bitkub.com'
@@ -54,4 +45,4 @@ print('Payload with signature: ' + json_encode(data))
 response = requests.post(API_HOST + '/api/market/place-bid', headers=header, data=json_encode(data))
 
 print('Response: ' + response.text)
-return ('Response: ' + response.text)
+
